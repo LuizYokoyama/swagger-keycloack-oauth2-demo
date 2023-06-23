@@ -18,7 +18,7 @@ springdoc:
       clientId: demoApp
       clientSecret: 0TxeKLnweDZYp9ZKBkSmKpYY1elgViQ3
 
-#KEYCLOAK
+####### KEYCLOAK
 keycloak:
   auth-server-url: 'http://localhost:8180/auth'
   realm: my   # tudo em minusculo

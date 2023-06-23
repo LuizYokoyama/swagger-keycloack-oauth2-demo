@@ -46,7 +46,7 @@ public class OpenApiConfig {
         return new OAuthFlow()
                 .authorizationUrl(authServerUrl + "/realms/" + realm + "/protocol/openid-connect/auth")
                 .tokenUrl(authServerUrl + "/realms/" + realm + "/protocol/openid-connect/token")
-                .scopes(new Scopes().addString("ROLE_user", "ROLE_user").addString("ROLE_USER", "ROLE_USER"))
+                .scopes(new Scopes().addString("write", "SCOPE write").addString("read", "SCOPE read"))
               ;
     }
 
