@@ -18,9 +18,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
-                       // .requestMatchers("**").permitAll()
                         .requestMatchers("/info/**").authenticated()
-                        //.requestMatchers("**").permitAll()
 
                         .anyRequest().permitAll()
                 )
