@@ -39,14 +39,13 @@ public class OpenApiConfig {
 
     private OAuthFlows createOAuthFlows() {
         OAuthFlow flow = createAuthorizationCodeFlow();
-        return new OAuthFlows().password(flow);  //.clientCredentials(flow);
+        return new OAuthFlows().password(flow);
     }
 
     private OAuthFlow createAuthorizationCodeFlow() {
         return new OAuthFlow()
                 .authorizationUrl(authServerUrl + "/realms/" + realm + "/protocol/openid-connect/auth")
                 .tokenUrl(authServerUrl + "/realms/" + realm + "/protocol/openid-connect/token")
-                .scopes(new Scopes().addString("write", "SCOPE write").addString("read", "SCOPE read"))
               ;
     }
 

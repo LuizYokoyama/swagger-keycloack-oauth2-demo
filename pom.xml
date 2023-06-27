@@ -17,9 +17,14 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+            <groupId>com.c4-soft.springaddons</groupId>
+            <!-- replace "webmvc" with "weblux" if your app is reactive -->
+            <!-- replace "jwt" with "introspecting" to use token introspection instead of JWT decoding -->
+            <artifactId>spring-addons-webmvc-jwt-resource-server</artifactId>
+            <!-- this version is to be used with spring-boot 3.1.0, use 5.4.x for spring-boot 2.6.x or before -->
+            <version>6.1.11</version>
         </dependency>
 
         <dependency>

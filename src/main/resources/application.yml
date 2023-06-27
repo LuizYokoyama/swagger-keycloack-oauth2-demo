@@ -3,6 +3,35 @@ server:
   servlet:
     context-path: /resource-server
 
+## STARTER: com.c4-soft.springaddons
+origins: '*'
+issuer: 'http://localhost:8180/auth/realms/my'
+
+com:
+  c4-soft:
+    springaddons:
+      security:
+        cors:
+          - path: /**
+            allowed-origins: ${origins}
+        issuers:
+          - location: ${issuer}
+            username-claim: preferred_username
+            authorities:
+              - path: $.realm_access.roles
+                prefix: ROLE_
+              - path: $.resource_access.*.roles
+                prefix: ROLE_CLIENT_
+              - path: $.scope
+                prefix: SCOPE_
+
+        permit-all:
+          - "/actuator/health/readiness"
+          - "/actuator/health/liveness"
+          - "/v3/api-docs/**"
+          - "/swagger-ui/**"
+          - "/swagger-ui.html"
+
 ####### resource server configuration properties
 spring:
   security:
@@ -17,6 +46,13 @@ springdoc:
     oauth:
       clientId: demoApp
       clientSecret: 0TxeKLnweDZYp9ZKBkSmKpYY1elgViQ3
+      scopeSeparator: " "
+      scopes: "openid profile read write"
+      use-basic-authentication-with-access-code-grant: false
+      useBasicAuthenticationWithAccessCodeGrant: true
+    show-extensions: true
+    with-credentials: true
+
 
 ####### KEYCLOAK
 keycloak:
