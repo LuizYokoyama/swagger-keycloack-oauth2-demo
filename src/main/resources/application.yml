@@ -46,12 +46,7 @@ springdoc:
     oauth:
       clientId: demoApp
       clientSecret: 0TxeKLnweDZYp9ZKBkSmKpYY1elgViQ3
-      scopeSeparator: " "
-      scopes: "openid profile read write"
-      use-basic-authentication-with-access-code-grant: false
-      useBasicAuthenticationWithAccessCodeGrant: true
-    show-extensions: true
-    with-credentials: true
+
 
 
 ####### KEYCLOAK
